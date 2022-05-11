@@ -58,13 +58,13 @@ archivo en cualquiera de estas carpetas, estás en el lugar equivocado.
   flex-direction: row-reverse;
 }
 
-#elementoUno {
-}
+/* #elementoUno {
+} */
 #elementoDos {
   align-self: flex-end;
 }
-#elementoTres {
-}
+/* #elementoTres {
+} */
 #elementoCuatro {
   align-self: center;
 }
