@@ -108,7 +108,15 @@ function numeroMasGrande(numeros) {
   // "numeros" debe ser una matriz de enteros (int/integers)
   // Devuelve el número más grande
   // Tu código:
-  let upper = Math.max(...numeros);
+
+  // let upper = Math.max(...numeros);
+
+  let upper = numeros[0];
+  for (let i = 1; i < numeros.length; i++) {
+    if (numeros[i] > upper) {
+      upper = numeros[i];
+    }
+  }
   return upper;
 }
 
@@ -116,8 +124,15 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
-
-  return result;
+  if (arguments.length < 1) {
+    return 0;
+  } else {
+    let mult = 1;
+    for (let i = 0; i < arguments.length; i++) {
+      mult = mult * arguments[i];
+    }
+    return mult;
+  }
 }
 
 function cuentoElementos(arreglo) {
@@ -148,18 +163,27 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí:
-  // let expReg = "^[0-9]+$";
-  // if () {
-  //   return true;
-  // } else {
-  //   return false;
-  // }
+
+  let num = n.toString();
+  if (num[0] === "9") {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
-  //Escribe tu código aquí
+  //Escribe tu código aquí:
+
+  for (let i = 0; i < arreglo.length - 1; i++) {
+    if (arreglo[i] !== arreglo[i + 1]) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
 
 function mesesDelAño(array) {
@@ -167,6 +191,21 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
+  let newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (
+      array[i] === "Enero" ||
+      array[i] === "Marzo" ||
+      array[i] === "Noviembre"
+    ) {
+      newArray.push(array[i]);
+    }
+  }
+
+  if (newArray.length < 3) {
+    return "No se encontraron los meses pedidos";
+  }
+  return newArray;
 }
 
 function mayorACien(array) {
@@ -193,18 +232,18 @@ function breakStatement(numero) {
   //Pista: usá el statement 'break'
   // Tu código:
 
-  let suma = 0;
-  let iter = 0;
+  let suma = numero;
   const arr = [];
 
-  for (let i = 0; i < 10; numero + 2) {
-    if (suma === iter) {
+  for (let i = 0; i < 10; i++) {
+    suma += 2;
+    if (suma === i) {
       return "Se interrumpió la ejecución";
+    } else {
+      arr.push(suma);
     }
-    arr.push(numero);
-    iter += 1;
-    suma += numero;
   }
+
   return arr;
 }
 
